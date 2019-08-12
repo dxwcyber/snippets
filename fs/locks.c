@@ -29,7 +29,12 @@ static void message(const char *msg) {
 }
 
 static void delay() {
-  usleep(1000000);
+  char *buffer;
+  size_t bufsize = 32;
+  size_t chars;
+  buffer = (char *)malloc(bufsize * sizeof(char));
+  printf("hit enter to release lock\n");
+  chars = getline(&buffer, &bufsize, stdin);
 }
 
 static void test_flock(int fd) {
